@@ -1,3 +1,4 @@
+import { validateIBAN } from "ibantools";
 import "./styles.css";
 
 export const ibanBienFormado = (iban: string): boolean => {
@@ -5,9 +6,12 @@ export const ibanBienFormado = (iban: string): boolean => {
     return patronIban.test(iban);
 }
 
-const validaIban = () => {};
-const devuelveBanco = () => {};
-const devuelveSucursal = () => {};
-const devuelveDigitoControl = () => {};
-const devuelveNumeroCuenta = () => {};
+export const validaIban = (iban: string): boolean => {
+    return validateIBAN(iban).valid;
+};
+
+export const devuelveBanco = () => {};
+export const devuelveSucursal = () => {};
+export const devuelveDigitoControl = () => {};
+export const devuelveNumeroCuenta = () => {};
 
