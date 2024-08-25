@@ -1,4 +1,4 @@
-type codigoBanco = {
+export type codigoBanco = {
     codigo: string,
     entidad: string
 }
