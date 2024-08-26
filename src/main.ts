@@ -1,17 +1,15 @@
 import { validateIBAN } from "ibantools";
 import "./styles.css";
-import { codigoBancoType, codigosBancos } from "./constantes";
+import { bancoElement, codigosBancos, digitoControlElement, ibanBienFormadoElement, ibanIntroducido, lupa, numeroCuentaElement, patronIban, sucursalElement } from "./constantes";
 
-const iban = "ES21 1465 0100 72 2030876293"
-
-
-const patronIban =  /^\w{2}(?<digitoControl1>\d{2})(\s|-|_|\.)?(?<codigoBanco>\d{4})(\s|-|_|\.)?(?<sucursal>\d{4})(\s|-|_|\.)?(?<digitoControl2>\d{2})(\s|-|_|\.)?(?<numeroCuenta>\d{10})$/;
+// Devuelve si el IBAN está bien formado
 export const ibanBienFormado = (iban: string): boolean => {
     return patronIban.test(iban);
 }
 
+
 // Gestiona datos iban
-const muestraDatosIban = (iban: string) => {
+export const muestraDatosIban = (iban: string) => {
     const coincidencia = patronIban.exec(iban);
     if (coincidencia) {
         const { digitoControl1, codigoBanco, sucursal, digitoControl2, numeroCuenta } = coincidencia.groups as any;
@@ -43,28 +41,50 @@ export const validaIban = (iban: string) => {
         return ibanLimpio;
     }
 
-    return validateIBAN(limpiaIban(iban)).valid;
+    if (ibanBienFormadoElement instanceof HTMLSpanElement) {
+        validateIBAN(limpiaIban(iban)).valid === true
+        ? ibanBienFormadoElement.innerText = "El IBAN está bien formado"
+        : ibanBienFormadoElement.innerText = "El IBAN es erróneo";
+    }
 };
 
+// Muestra el nombre del banco
 export const muestraBanco = (codigoBanco: string) => {
     const banco = codigosBancos.find(banco => (banco.codigo === codigoBanco));
     const entidad = banco?.entidad;
 
-    if (banco) {
-        return entidad;
-    } else {
-        return "No se ha encontrado el banco"; 
+    if (bancoElement instanceof HTMLSpanElement) {
+        entidad
+        ? bancoElement.innerText = entidad
+        : bancoElement.innerText = "El banco es erróneo";
     }
 };
 
+// Devuelve el número de la sucursal
 export const muestraSucursal = (sucursal: string) => {
-    
+    if (sucursalElement instanceof HTMLSpanElement) {
+        sucursal
+        ? sucursalElement.innerText = sucursal
+        : sucursalElement.innerText = "La sucursal es errónea";
+    }
 };
 
+// Devuelve el dígito de control
 export const muestraDigitoControl = (digitoControl: string) => {
-
+    if (digitoControlElement instanceof HTMLSpanElement) {
+        digitoControl
+        ? digitoControlElement.innerText = digitoControl
+        : digitoControlElement.innerText = "El digito de control es erróneo";
+    }
 };
 
+// Devuelve el número de cuenta
 export const muestraNumeroCuenta = (numeroCuenta: string) => {
-
+    if (numeroCuentaElement instanceof HTMLSpanElement) {
+        numeroCuenta
+        ? numeroCuentaElement.innerText = numeroCuenta
+        : numeroCuentaElement.innerText = "El banco es erróneo";
+    }
 };
+
+lupa?.addEventListener("click", () => muestraDatosIban(ibanIntroducido.toString()));

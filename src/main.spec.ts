@@ -44,11 +44,10 @@ describe("devuelveBanco", () => {
 
 describe("devuelveSucursal", () => {
     it.each([
-        [ "ING Bank NV", "1465"],
-        [ "ING Bank NV", "1465"] ,
-        [ "Bankinter", "0128"],
-        [ "Caixabank", "2100"],
-        [ "No se ha encontrado el banco", "0000"],
+        [ "1234", "1465"],
+        [ "2341", "1465"] ,
+        [ "3412", "0128"],
+        [ "4123", "2100"]
     ])
     ('Debería devolver %s si el iban es %s', (resultadoEsperado, banco) => {
         const resultado  = muestraBanco(banco);
@@ -62,21 +61,7 @@ describe("devuelveDigitoControl", () => {
         [ "ING Bank NV", "1465"] ,
         [ "Bankinter", "0128"],
         [ "Caixabank", "2100"],
-        [ "No se ha encontrado el banco", "0000"],
-    ])
-    ('Debería devolver %s si el iban es %s', (resultadoEsperado, banco) => {
-        const resultado  = muestraBanco(banco);
-        expect(resultado).toBe(resultadoEsperado);
-    });
-});
-
-describe("devuelveBanco", () => {
-    it.each([
-        [ "ING Bank NV", "1465"],
-        [ "ING Bank NV", "1465"] ,
-        [ "Bankinter", "0128"],
-        [ "Caixabank", "2100"],
-        [ "No se ha encontrado el banco", "0000"],
+        [ "Dígito de control erróneo.", "0000"],
     ])
     ('Debería devolver %s si el iban es %s', (resultadoEsperado, banco) => {
         const resultado  = muestraBanco(banco);
@@ -86,11 +71,11 @@ describe("devuelveBanco", () => {
 
 describe("devuelveNumeroCuenta", () => {
     it.each([
-        [ "ING Bank NV", "1465"],
-        [ "ING Bank NV", "1465"] ,
-        [ "Bankinter", "0128"],
-        [ "Caixabank", "2100"],
-        [ "No se ha encontrado el banco", "0000"],
+        [ "", "1465"],
+        [ "", "1465"] ,
+        [ "", "0128"],
+        [ "", "2100"],
+        [ "El número de cuenta es erróneo.", "dsfaf"],
     ])
     ('Debería devolver %s si el iban es %s', (resultadoEsperado, banco) => {
         const resultado  = muestraBanco(banco);
