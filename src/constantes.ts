@@ -1,9 +1,9 @@
-export type codigoBanco = {
+export type codigoBancoType = {
     codigo: string,
     entidad: string
 }
 
-export const codigosBancos: codigoBanco[] = [
+export const codigosBancos: codigoBancoType[] = [
     { codigo: '2080', entidad: "Abanca Corporación Bancaria"},
     { codigo: '0061', entidad: "Banca March"},
     { codigo: '0188', entidad: "Banco Alcalá"},
