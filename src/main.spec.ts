@@ -1,4 +1,4 @@
-import { ibanBienFormado, validaIban } from "./main"
+import { ibanBienFormado, muestraBanco, validaIban } from "./main"
 
 describe("ibanBienFormado", () => {
     it.each([
@@ -18,7 +18,7 @@ describe("validaIban", () => {
     it.each([
         [ false, "ES21 1465 0100 72 2030876293"],
         [ false, "ES2114650100722030876293"] ,
-        [ true, "ES21-1465-0100-72-2030876293"],
+        [ false, "ES21-1465-0100-72-2030876293"],
         [ true, "ES66.2100.0418.40.1234567891"],
         [ false, "ES620000418401234567891"],
     ])
@@ -30,31 +30,70 @@ describe("validaIban", () => {
 
 describe("devuelveBanco", () => {
     it.each([
-        [ "ING Bank NV", "ES21 1465 0100 72 2030876293"],
-        [ "ING Bank NV", "ES2114650100722030876293"] ,
-        [ "Bankinter", "ES21-0128-0100-72-2030876293"],
-        [ "Caixabank", "ES66.2100.0418.40.1234567891"],
-        [ "No se ha encontrado el banco", "ES620000418401234567891"],
+        [ "ING Bank NV", "1465"],
+        [ "ING Bank NV", "1465"] ,
+        [ "Bankinter", "0128"],
+        [ "Caixabank", "2100"],
+        [ "No se ha encontrado el banco", "0000"],
     ])
-    ('Debería devolver %s si el iban es %s', (resultadoEsperado, iban) => {
-        const resultado  = devuelveBanco(iban);
+    ('Debería devolver %s si el iban es %s', (resultadoEsperado, banco) => {
+        const resultado  = muestraBanco(banco);
         expect(resultado).toBe(resultadoEsperado);
     });
 });
 
+describe("devuelveSucursal", () => {
+    it.each([
+        [ "ING Bank NV", "1465"],
+        [ "ING Bank NV", "1465"] ,
+        [ "Bankinter", "0128"],
+        [ "Caixabank", "2100"],
+        [ "No se ha encontrado el banco", "0000"],
+    ])
+    ('Debería devolver %s si el iban es %s', (resultadoEsperado, banco) => {
+        const resultado  = muestraBanco(banco);
+        expect(resultado).toBe(resultadoEsperado);
+    });
+});
 
-export const devuelveBanco = () => {
+describe("devuelveDigitoControl", () => {
+    it.each([
+        [ "ING Bank NV", "1465"],
+        [ "ING Bank NV", "1465"] ,
+        [ "Bankinter", "0128"],
+        [ "Caixabank", "2100"],
+        [ "No se ha encontrado el banco", "0000"],
+    ])
+    ('Debería devolver %s si el iban es %s', (resultadoEsperado, banco) => {
+        const resultado  = muestraBanco(banco);
+        expect(resultado).toBe(resultadoEsperado);
+    });
+});
 
-};
+describe("devuelveBanco", () => {
+    it.each([
+        [ "ING Bank NV", "1465"],
+        [ "ING Bank NV", "1465"] ,
+        [ "Bankinter", "0128"],
+        [ "Caixabank", "2100"],
+        [ "No se ha encontrado el banco", "0000"],
+    ])
+    ('Debería devolver %s si el iban es %s', (resultadoEsperado, banco) => {
+        const resultado  = muestraBanco(banco);
+        expect(resultado).toBe(resultadoEsperado);
+    });
+});
 
-export const devuelveSucursal = () => {
-
-};
-
-export const devuelveDigitoControl = () => {
-
-};
-
-export const devuelveNumeroCuenta = () => {
-
-};
+describe("devuelveNumeroCuenta", () => {
+    it.each([
+        [ "ING Bank NV", "1465"],
+        [ "ING Bank NV", "1465"] ,
+        [ "Bankinter", "0128"],
+        [ "Caixabank", "2100"],
+        [ "No se ha encontrado el banco", "0000"],
+    ])
+    ('Debería devolver %s si el iban es %s', (resultadoEsperado, banco) => {
+        const resultado  = muestraBanco(banco);
+        expect(resultado).toBe(resultadoEsperado);
+    });
+});

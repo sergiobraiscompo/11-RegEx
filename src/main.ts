@@ -53,7 +53,7 @@ export const muestraBanco = (codigoBanco: string) => {
     if (banco) {
         return entidad;
     } else {
-        return "Error con el IBAN"; 
+        return "No se ha encontrado el banco"; 
     }
 };
 
@@ -68,5 +68,3 @@ export const muestraDigitoControl = (digitoControl: string) => {
 export const muestraNumeroCuenta = (numeroCuenta: string) => {
 
 };
-
-console.log(muestraBanco(iban))
