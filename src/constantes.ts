@@ -58,4 +58,4 @@ export const numeroCuentaElement = document.getElementById("numero_cuenta");
 
 
 export const ibanIntroducido =  document.getElementById("campo_iban") as HTMLInputElement;
-export const lupa = document.getElementById("pedir_carta");
+export const botonEnviaIban = document.getElementById("boton_envia_iban") as HTMLButtonElement;

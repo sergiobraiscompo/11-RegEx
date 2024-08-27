@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="module" src="/src/main.ts"></script>
         <title>Laboratiorio 11 - RegEx</title>
     </head>
     <body>
@@ -12,10 +13,10 @@
 
         <h2>Introduzca el IBAN</h2>
         <input type="text" name="campo_iban" id="campo_iban">
-        <img src="/public/magnifying_glass.svg" id="magnifying_glass" class="magnifying_glass" alt="Muestra los datos del IBAN">
+        <button id="boton_envia_iban"><img src="/public/magnifying_glass.svg" id="magnifying_glass" class="magnifying_glass"></button>
 
-        <span id="iban_bien_formado" class="iban_bien_formado"></span>
-        <span id="iban_valido" class="iban_valido"></span>
+        <p id="iban_bien_formado" class="iban_bien_formado"></p>
+        <p id="iban_valido" class="iban_valido"></p>
         <h2>Banco:</h2><span id="banco" class="banco"></span>
         <h2>Código sucursal:</h2><span id="sucursal" class="sucursal"></span>
         <h2>Digito de control:</h2><span id="digito_control" class="digito_control"></span>

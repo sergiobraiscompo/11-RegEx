@@ -1,6 +1,6 @@
-import { validateIBAN } from "ibantools";
 import "./styles.css";
-import { bancoElement, codigosBancos, digitoControlElement, ibanBienFormadoElement, ibanIntroducido, lupa, numeroCuentaElement, patronIban, sucursalElement } from "./constantes";
+import { validateIBAN } from "ibantools";
+import { bancoElement, botonEnviaIban, codigosBancos, digitoControlElement, ibanBienFormadoElement, ibanIntroducido, ibanValidoElement, numeroCuentaElement, patronIban, sucursalElement } from "./constantes";
 
 // Devuelve si el IBAN está bien formado
 export const ibanBienFormado = (iban: string): boolean => {
@@ -10,41 +10,49 @@ export const ibanBienFormado = (iban: string): boolean => {
 
 // Gestiona datos iban
 export const muestraDatosIban = (iban: string) => {
-    const coincidencia = patronIban.exec(iban);
-    if (coincidencia) {
-        const { digitoControl1, codigoBanco, sucursal, digitoControl2, numeroCuenta } = coincidencia.groups as any;
-
-        validaIban(iban);
-        muestraBanco(codigoBanco);
-        muestraSucursal(sucursal);
-        muestraDigitoControl(digitoControl1);
-        muestraNumeroCuenta(numeroCuenta);
-        digitoControl2;
-    } else {
-        console.log("El iban introducido es incorrecto.");
+    console.log("Mostrando datos IBAN");
+    
+    if (ibanValidoElement instanceof HTMLParagraphElement) {
+        const coincidencia = patronIban.exec(iban);
+        
+        if (coincidencia) {
+            const { digitoControl1, codigoBanco, sucursal, digitoControl2, numeroCuenta } = coincidencia.groups as any;
+            
+            ibanValidoElement.innerText = "El IBAN está bien formado"
+            
+            validaIban(iban);
+            muestraBanco(codigoBanco);
+            muestraSucursal(sucursal);
+            muestraDigitoControl(digitoControl1);
+            muestraNumeroCuenta(numeroCuenta);
+            digitoControl2;
+        } else {
+            ibanValidoElement.innerText = "El IBAN es erróneo";
+        }
     }
 }
 
 
-// Limpia el iban y lo pasa por validate iban
-export const validaIban = (iban: string) => {
-    const limpiaIban = (iban: string): string => {
-        let ibanLimpio = "";
-        if (iban.includes(".")) {
-            ibanLimpio = iban.split(".").join('');
-        }
-
-        if (iban.includes("-")) {
-            ibanLimpio = iban.split("-").join('');
-        }
-        
-        return ibanLimpio;
+// Elimina los separados del iban para poder mandarlo a los ibantools
+const limpiaIban = (iban: string): string => {
+    let ibanLimpio = "";
+    if (iban.includes(".")) {
+        ibanLimpio = iban.split(".").join('');
     }
 
-    if (ibanBienFormadoElement instanceof HTMLSpanElement) {
+    if (iban.includes("-")) {
+        ibanLimpio = iban.split("-").join('');
+    }
+    
+    return ibanLimpio;
+}
+
+// Limpia el iban y lo pasa por validate iban
+export const validaIban = (iban: string) => {
+    if (ibanBienFormadoElement instanceof HTMLParagraphElement) {
         validateIBAN(limpiaIban(iban)).valid === true
-        ? ibanBienFormadoElement.innerText = "El IBAN está bien formado"
-        : ibanBienFormadoElement.innerText = "El IBAN es erróneo";
+        ? ibanBienFormadoElement.innerText = "El IBAN es válido"
+        : ibanBienFormadoElement.innerText = "El IBAN no es válido";
     }
 };
 
@@ -87,4 +95,6 @@ export const muestraNumeroCuenta = (numeroCuenta: string) => {
     }
 };
 
-lupa?.addEventListener("click", () => muestraDatosIban(ibanIntroducido.toString()));
+ibanIntroducido;
+
+botonEnviaIban?.addEventListener("click", () => muestraDatosIban(ibanIntroducido.toString()));
