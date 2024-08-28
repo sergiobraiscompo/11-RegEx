@@ -55,7 +55,5 @@ export const bancoElement = document.getElementById("banco");
 export const sucursalElement = document.getElementById("sucursal");
 export const digitoControlElement = document.getElementById("digito_control");
 export const numeroCuentaElement = document.getElementById("numero_cuenta");
-
-
-export const ibanIntroducido =  document.getElementById("campo_iban") as HTMLInputElement;
-export const botonEnviaIban = document.getElementById("boton_envia_iban") as HTMLButtonElement;
+export const botonEnviaIban = document.getElementById("comprueba_iban") as HTMLButtonElement;
+export const ibanIntroducido = document.getElementById("campo_iban") as HTMLInputElement;

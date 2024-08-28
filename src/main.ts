@@ -9,8 +9,9 @@ export const ibanBienFormado = (iban: string): boolean => {
 
 
 // Gestiona datos iban
-export const muestraDatosIban = (iban: string) => {
-    console.log("Mostrando datos IBAN");
+export const muestraDatosIban = () => { 
+    const iban: string = String(ibanIntroducido.value); 
+    console.log(iban);
     
     if (ibanValidoElement instanceof HTMLParagraphElement) {
         const coincidencia = patronIban.exec(iban);
@@ -20,6 +21,7 @@ export const muestraDatosIban = (iban: string) => {
             
             ibanValidoElement.innerText = "El IBAN está bien formado"
             
+            limpiaIban(iban);
             validaIban(iban);
             muestraBanco(codigoBanco);
             muestraSucursal(sucursal);
@@ -95,6 +97,5 @@ export const muestraNumeroCuenta = (numeroCuenta: string) => {
     }
 };
 
-ibanIntroducido;
 
-botonEnviaIban?.addEventListener("click", () => muestraDatosIban(ibanIntroducido.toString()));
+botonEnviaIban?.addEventListener("click", () => {muestraDatosIban()});
