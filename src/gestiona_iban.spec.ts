@@ -1,4 +1,6 @@
-import { ibanBienFormado, muestraBanco, validaIban } from "./main"
+import { validaIban } from "./gestiona_iban";
+import { ibanBienFormado } from "./gestiona_iban.helper";
+import { muestraBanco } from "./ui";
 
 describe("ibanBienFormado", () => {
     it.each([

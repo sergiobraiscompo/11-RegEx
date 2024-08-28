@@ -45,7 +45,6 @@ export const codigosBancos: codigoBancoType[] = [
     { codigo: '2103', entidad: "Unicaja Banco"}
 ]
 
-
 export const patronIban =  /^\w{2}(?<digitoControl1>\d{2})(\s|-|_|\.)?(?<codigoBanco>\d{4})(\s|-|_|\.)?(?<sucursal>\d{4})(\s|-|_|\.)?(?<digitoControl2>\d{2})(\s|-|_|\.)?(?<numeroCuenta>\d{10})$/;
 
 // Elementos HTML
