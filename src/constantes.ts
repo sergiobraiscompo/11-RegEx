@@ -49,8 +49,7 @@ export const codigosBancos: codigoBancoType[] = [
 export const patronIban =  /^\w{2}(?<digitoControl1>\d{2})(\s|-|_|\.)?(?<codigoBanco>\d{4})(\s|-|_|\.)?(?<sucursal>\d{4})(\s|-|_|\.)?(?<digitoControl2>\d{2})(\s|-|_|\.)?(?<numeroCuenta>\d{10})$/;
 
 // Elementos HTML
-export const ibanBienFormadoElement = document.getElementById("iban_bien_formado");
-export const ibanValidoElement = document.getElementById("iban_valido");
+export const contenedorValidacionIban = document.getElementById("contenedor_validacion_iban");
 export const bancoElement = document.getElementById("banco");
 export const sucursalElement = document.getElementById("sucursal");
 export const digitoControlElement = document.getElementById("digito_control");
