@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="module" src="/src/gestiona_iban.ts"></script>
+        <title>Laboratiorio 11 - RegEx</title>
+    </head>
+    <body>
+        <header>
+            <h1>Validador de IBAN</h1>
+        </header>
+
+        <div class="input-usuario" id="input-usuario">
+            <h2>Introduzca el IBAN</h2>
+            
+            <div class="contenedor-input" id="contenedor-input">
+                <input type="text" id="campo-iban" class="campo-iban">
+                <button id="comprueba-iban" class="comprueba-iban"><img src="/public/magnifying_glass.svg" id="magnifying-glass" class="magnifying-glass"></button>
+            </div>
+        </div>
+
+        <div id="iban-desglosado" class="iban-desglosado">
+            <div class="contenedor-validacion-iban" id="contenedor-validacion-iban"></div>
+            <div class="info-container" id="banco-container"></div><h2>Banco:</h2><p id="banco" class="banco"></p>
+            <div class="info-container" id="codigo-sucursal-container"></div><h2>Código sucursal:</h2><p id="sucursal" class="sucursal"></p>
+            <div class="info-container" id="digito-control-container"></div><h2>Digito de control:</h2><p id="digito-control" class="digito-control"></p>
+            <div class="info-container" id="numero-cuenta-container"></div><h2>Numero de cuenta:</h2><p id="numero-cuenta" class="numero-cuenta"></p>
+        </div>
+    </body>
+</html>
