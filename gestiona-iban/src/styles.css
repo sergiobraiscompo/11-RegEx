@@ -21,11 +21,11 @@ header {
     justify-content: space-around;
     background: linear-gradient(grey, white);
     border-radius: 20px 20px 0px 0px;
-    height: 200px;
+    height: 300px;
 }
 
 .contenedor-input {
-    display: inline-flex;
+    display: flex;
     justify-content: space-around;
     align-items: center;
     height: 50px;
@@ -41,15 +41,36 @@ header {
 }
 
 .campo-iban {
-    justify-self: left;
     width: 90%;
     height: 100%;
+    border: 1px grey solid;
     margin-bottom: 5px;
-    border: none;
+    font-size: xx-large;
+    text-align: center;
+    background-color: transparent;
+}
+
+.campo-iban:focus {
+    outline: none;
 }
 
 
 /* Elementos iban desglosado */
+
+.contenedor-validacion-iban {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.mensaje-iban-bien-formado-element, .mensaje-iban-valido-element {
+    color: green;
+    align-items: center;
+    font-size: xx-large;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
 .iban-desglosado {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -57,26 +78,18 @@ header {
     border-radius: 0px 0px 20px 20px;
 }
 
-.contenedor-validacion-iban {
-    display: flex;
-    justify-content: space-around;
-    background: white;
-}
-
-.mensaje-iban-bien-formado-element, .mensaje-iban-valido-element {
-    color: rgb(33, 126, 30);
-    font-weight: bolder;
-    text-transform: uppercase;
-}
-
 .info-container {
     display: flex;
     flex-direction: column;
-    width: 250px;
-    margin: 0 10px;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 400px;
+    padding-top: 5%;
+    border: 1px black solid;
 }
 
-.info-container h2, p {
+.info-container p {
     text-align: center;
-    height: 100px;
+    font-size: large;
+    font-size: xx-large;
 }

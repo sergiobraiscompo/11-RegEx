@@ -6,26 +6,22 @@
         <script type="module" src="/src/gestiona_iban.ts"></script>
         <title>Laboratiorio 11 - RegEx</title>
     </head>
-    <body>
-        <header>
-            <h1>Validador de IBAN</h1>
-        </header>
-            
+    <body>          
             <div class="input-usuario" id="input-usuario">
-                <h1>Introduzca el IBAN</h1>
+                <h1>VALIDADOR DE IBAN</h1>
                 
                 <div class="contenedor-input" id="contenedor-input">
-                    <input type="text" id="campo-iban" class="campo-iban">
+                    <input type="text" id="campo-iban" class="campo-iban" value="introduce el iban">
                     <button id="comprueba-iban" class="comprueba-iban"><img src="/public/magnifying_glass.svg" id="magnifying-glass" class="magnifying-glass"></button>
                 </div>
             </div>
 
         <div class="contenedor-validacion-iban" id="contenedor-validacion-iban"></div>
         <div id="iban-desglosado" class="iban-desglosado">
-            <div class="info-container" id="banco-container"><h2>Banco</h2><p id="banco" class="banco"></p></div>
-            <div class="info-container" id="codigo-sucursal-container"><h2>Código sucursal</h2><p id="sucursal" class="sucursal"></p></div>
-            <div class="info-container" id="digito-control-container"><h2>Digito de control</h2><p id="digito-control" class="digito-control"></p></div>
-            <div class="info-container" id="numero-cuenta-container"><h2>Numero de cuenta</h2><p id="numero-cuenta" class="numero-cuenta"></p></div>
+            <div class="info-container" id="banco-container"><p>BANCO</p><p id="banco" class="banco"></p></div>
+            <div class="info-container" id="codigo-sucursal-container"><p>CÓDIGO SUCURSAL</p><p id="sucursal" class="sucursal"></p></div>
+            <div class="info-container" id="digito-control-container"><p>DÍGITO CONTROL</p><p id="digito-control" class="digito-control"></p></div>
+            <div class="info-container" id="numero-cuenta-container"><p>NÚMERO CUENTA</p><p id="numero-cuenta" class="numero-cuenta"></p></div>
         </div>
     </body>
 </html>
