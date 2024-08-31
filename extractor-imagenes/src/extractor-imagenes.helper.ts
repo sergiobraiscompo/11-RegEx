@@ -5,14 +5,14 @@ import { reiniciaElementos } from './ui';
 // Gestiona datos iban
 export const extraeUrlImagenes = (texto: string) => {
     reiniciaElementos();
-    const mensaje = "";
+    let mensaje = "";
     const coincidencia = patronUrl.exec(texto);
     
     if (texto === "") {
         mensaje = "Por favor introduce un valor.";
     } else {
         if (coincidencia) {
-            const { digitoControl1, codigoBanco, sucursal, digitoControl2, numeroCuenta } = coincidencia.groups as any;            
+            const lol = coincidencia.groups as any;            
             mensaje = "Extrayendo imágenes";
         }
     }

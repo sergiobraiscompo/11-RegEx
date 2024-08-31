@@ -1,28 +1,28 @@
-import { patronIban } from "./constantes";
+import { patronUrl } from "./constantes";
 
-// Elimina los separados del iban para poder mandarlo a los ibantools
-export const limpiaIban = (iban: string): string => {
-    let ibanLimpio = "";
-    if (iban.includes(".")) {
-        ibanLimpio = iban.split(".").join('');
+// Elimina los separados del url para poder mandarlo a los urltools
+export const limpiaurl = (url: string): string => {
+    let urlLimpia = "";
+    if (url.includes(".")) {
+        urlLimpia = url.split(".").join('');
     }
 
-    if (iban.includes(" ")) {
-        ibanLimpio = iban.split(" ").join('');
+    if (url.includes(" ")) {
+        urlLimpia = url.split(" ").join('');
     }
 
-    if (iban.includes("-")) {
-        ibanLimpio = iban.split("-").join('');
+    if (url.includes("-")) {
+        urlLimpia = url.split("-").join('');
     }
 
-    if (iban.includes("_")) {
-        ibanLimpio = iban.split("_").join('');
+    if (url.includes("_")) {
+        urlLimpia = url.split("_").join('');
     }
     
-    return ibanLimpio;
+    return urlLimpia;
 }
 
-// Devuelve si el IBAN está bien formado
-export const ibanBienFormado = (iban: string): boolean => {
-    return patronIban.test(iban);
+// Devuelve si el url está bien formado
+export const urlBienFormada = (url: string): boolean => {
+    return patronUrl.test(url);
 }

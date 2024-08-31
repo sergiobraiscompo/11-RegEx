@@ -1,4 +1,4 @@
-import { botonEnviaIban } from "./constantes";
-import { muestraDatosIban } from "./extractor-imagenes.helper";
+import { botonExtraeImagenes, campoTexto } from "./constantes";
+import { extraeUrlImagenes } from "./extractor-imagenes.helper";
 
-botonEnviaIban?.addEventListener("click", () => {muestraDatosIban()});
+botonExtraeImagenes?.addEventListener("click", () => {extraeUrlImagenes(campoTexto)});
