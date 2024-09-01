@@ -1,4 +1,4 @@
-import { extraeUrlImagenes } from "./extractor-imagenes.helper";
+import { extraeUrlImagenes } from "./extractor-imagenes";
 
 const codigoHTML :string= `
 <html lang="en">

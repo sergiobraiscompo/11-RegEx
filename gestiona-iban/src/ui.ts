@@ -62,11 +62,11 @@ export const muestraSucursal = (sucursal: string) => {
 };
 
 // Devuelve el dígito de control
-export const muestraDigitoControl = (digitoControl: string) => {
+export const muestraDigitoControl = (digitoControl1: string,  digitoControl2: string) => {
     if (digitoControlElement instanceof HTMLParagraphElement) {
-        digitoControl
-        ? digitoControlElement.innerText = digitoControl
-        : digitoControlElement.innerText = "El digito de control es erróneo";
+        digitoControl1 && digitoControl2
+        ? digitoControlElement.innerText = `${digitoControl1}, ${digitoControl2}`
+        : digitoControlElement.innerText = "uno o más digitos de control son erróneos";
     }
 };
 

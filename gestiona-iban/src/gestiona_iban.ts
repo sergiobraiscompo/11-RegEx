@@ -25,9 +25,8 @@ export const muestraDatosIban = () => {
             if (validaIban(iban) === "El IBAN es válido") {
                 muestraBanco(codigoBanco);
                 muestraSucursal(sucursal);
-                muestraDigitoControl(digitoControl1);
+                muestraDigitoControl(digitoControl1, digitoControl2);
                 muestraNumeroCuenta(numeroCuenta);
-                digitoControl2;    
             }
 
             creaElementosValidacionIban(mensajeIbanBienFormado, mensajeIbanValido);
