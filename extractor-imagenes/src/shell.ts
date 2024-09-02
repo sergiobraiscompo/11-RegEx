@@ -1,4 +1,4 @@
-import { botonExtraeImagenes, campoTexto } from "./constantes";
+import { botonExtraeImagenes } from "./constantes";
 import { extraeUrlImagenes } from "./extractor-imagenes";
 
 botonExtraeImagenes?.addEventListener("click", () => {extraeUrlImagenes()});
