@@ -1,18 +1,22 @@
-import { campoCodigo, patronUrl, url } from "./constantes";
+import { campoCodigo, patronImagenHtml } from "./constantes";
 import { muestraMensajeError } from "./ui";
+// import { muestraMensajeError } from "./ui";
 
 
-export const extraeUrls = () => {
+export const extraeUrls = (): string[] => {
     const codigoInput: string = String(campoCodigo.value); 
-    const urlsExtraidas: url[] = codigoInput.match(patronUrl);
+    const imgElements = codigoInput.matchAll(patronImagenHtml);
+    let urls: string[] = [];
 
-    if (!urlsExtraidas) {
-        console.log(`urls extraídas ${urlsExtraidas}`)
-        muestraMensajeError("No se ha enontrado ningún elemento imagen."); 
-    } else {
-        console.log(`urls extraídas ${urlsExtraidas}`);
-        return urlsExtraidas
-        ? urlsExtraidas
-        : muestraMensajeError("Por favor introduce un fragmento de código con imágenes.");
+    for (const imgElement of imgElements) {
+            const imageUrl = imgElement.groups;
+
+            if (imageUrl) {
+                console.log(imageUrl.value)
+                urls.push(imageUrl.value);
+            }
+        }
+        
+        return urls;      
     }
-};
+

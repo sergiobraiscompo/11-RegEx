@@ -6,8 +6,8 @@ import { reiniciaElementos } from './ui';
 // Gestiona datos iban
 export const extraeUrlImagenes = () => {
     reiniciaElementos();
-    const urlsImagenes = Array(extraeUrls());
-    console.log(urlsImagenes);
+    const urlsImagenes = extraeUrls();
+    console.log(urlsImagenes)
 }
 
 

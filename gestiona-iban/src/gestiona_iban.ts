@@ -1,9 +1,9 @@
 import "./styles.css";
+import * as shell from './shell';
 import { validateIBAN } from "ibantools";
 import { limpiaIban } from "./gestiona_iban.helper";
 import { creaElementosValidacionIban, muestraBanco, muestraDigitoControl, muestraNumeroCuenta, muestraSucursal, reiniciaElementos } from "./ui";
 import { ibanIntroducido, patronIban } from "./constantes";
-import * as shell from './shell';
 
 // Gestiona datos iban
 export const muestraDatosIban = () => {

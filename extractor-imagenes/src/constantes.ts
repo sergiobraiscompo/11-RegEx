@@ -1,4 +1,4 @@
-export const patronUrl = /^\<img\ src\=\"(?<link>http:\/\/:*.*)\" ?\/>$/gm;
+export const patronImagenHtml = /^\s*?\<img src\s?=\s?"(?<link>http:\/\/:*.*)" ?\/>$/gm;
 
 // Elementos HTML
 export const contenedorIntroducciontexto = document.getElementById("contenedor-validacion-iban") as HTMLDivElement;
@@ -8,7 +8,6 @@ export const botonExtraeImagenes = document.getElementById("boton-extrae-imagene
 export const contenedorDatosDevueltos = document.getElementById("contenedor-datos-devueltos") as HTMLDivElement;
 
 //Ejemplo de código
-
 const codigoHTML :string= `
 <html lang="en">
   <head>
@@ -149,13 +148,5 @@ const codigoHTML :string= `
   </body>
 </html>
 `;
-
-export interface url {
-    re: RegExp;
-    parse(
-      line: string,
-      ...matches: string[]
-    ): { content: string, style?: string }
-  }
 
 codigoHTML;
