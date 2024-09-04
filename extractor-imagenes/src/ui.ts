@@ -13,20 +13,46 @@ export const muestraMensajeError = (mensajeComprobacionCodigo: string) => {
     }
 }
 
-export const muestraImagen = (urlImagen: string) => {
+
+export const creaCardImagen = (url: string) => {
+    console.log("Creando carta imagen");
+    
+    // Crea el contenedor de la imagen
+    const cardImagenElement = document.createElement("div");
+    cardImagenElement.id = "card-imagen-element";
+    cardImagenElement.className = "card-imagen-element";
+    
+    creaElementoImagen(url);
+    creaElementoUrl(url);
+
+    const imagenElement = document.getElementById("imagen-element");
+    const urlElement = document.getElementById("link-element");
+
+    if (imagenElement instanceof HTMLImageElement) {
+        cardImagenElement?.appendChild(imagenElement);
+        console.log("Añadiendo elemento imagen")
+    }
+    
+    if (urlElement instanceof HTMLSpanElement) {
+        cardImagenElement?.appendChild(urlElement);
+        console.log("Añadiendo elemento url")
+    }
+
+    contenedorDatosDevueltos.appendChild(cardImagenElement);
+}
+
+export const creaElementoImagen = (urlImagen: string) => {
     const imagenElement = document.createElement("img");
     imagenElement.src = urlImagen;
     imagenElement.id = "imagen-element";
     imagenElement.className = "imagen-element";
-    contenedorDatosDevueltos?.appendChild(imagenElement);
 }
 
-export const muestraUrl = (url: string) => {
-    const urlElement = document.createElement("textarea");
+export const creaElementoUrl = (url: string) => {
+    const urlElement = document.createElement("span");
     urlElement.innerText = url;
     urlElement.id = "link-element";
     urlElement.className = "link-element";
-    contenedorDatosDevueltos?.appendChild(urlElement);
 }
 
 export const reiniciaElementos = () => {
@@ -37,7 +63,6 @@ export const reiniciaElementos = () => {
     if ( mensajeComprobacionCodigoElement instanceof HTMLParagraphElement && contenedorDatosDevueltos instanceof HTMLDivElement) {
         contenedorDatosDevueltos.removeChild(mensajeComprobacionCodigoElement);
     }
-    
     
     if ( imagenElement instanceof HTMLImageElement && urlElement instanceof HTMLSpanElement) {
         contenedorDatosDevueltos.removeChild(imagenElement);

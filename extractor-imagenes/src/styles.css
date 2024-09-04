@@ -24,3 +24,28 @@ h1 {
     height: fit-content;
     align-self: center;
 }
+
+
+/* Imagenes devueltas */
+.contenedor-datos-devueltos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: fit-content;
+    max-width: 90%;
+}
+
+.card-imagen-element {
+    background-color: lightblue;
+    margin: 5px;
+}
+
+.imagen-element {
+    height: 100px;
+    background-color: lightcoral;
+}
+
+.link-element {
+    text-align: center;
+    height: min-content;
+    background-color: lightgreen;
+}
