@@ -1,7 +1,7 @@
 import "./styles.css";
-import * as shell from './shell';
 import { extraeUrls } from './extractor-imagenes.helper';
 import { creaCardImagen, reiniciaElementos } from './ui';
+import { botonExtraeImagenes } from "./constantes";
 
 // Gestiona datos iban
 export const extraeUrlImagenes = () => {
@@ -13,5 +13,8 @@ export const extraeUrlImagenes = () => {
     }
 }
 
+const eventos = () => {
+    botonExtraeImagenes.addEventListener("click", () => {extraeUrlImagenes()});
+}
 
-shell;
+addEventListener("DOMContentLoaded", eventos);

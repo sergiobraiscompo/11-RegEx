@@ -1,6 +1,4 @@
 import { campoCodigo, patronImagenHtml } from "./constantes";
-// import { muestraMensajeError } from "./ui";
-
 
 export const extraeUrls = (): string[] => {
     const codigoInput: string = String(campoCodigo.value); 
@@ -15,5 +13,8 @@ export const extraeUrls = (): string[] => {
         }
     }
 
+    urls.forEach((url) => console.log(url))
     return urls;
 }
+
+
