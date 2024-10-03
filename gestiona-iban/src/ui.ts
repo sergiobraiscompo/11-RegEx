@@ -1,37 +1,39 @@
 import { bancoElement, codigosBancos, contenedorValidacionIban, digitoControlElement, numeroCuentaElement, sucursalElement } from "./constantes";
 
-export const creaElementosValidacionIban = (mensajeIbanBienFormado: string, mensajeIbanValido: string) => {    
+export const creaElementosValidacionIban = (mensajeIbanBienFormado: string, mensajeIbanValido?: string) => {    
+    reiniciaElementosValidacionIban();
+
     const mensajeIbanBienFormadoElement = document.createElement("p");
     mensajeIbanBienFormadoElement.innerHTML = mensajeIbanBienFormado;
     mensajeIbanBienFormadoElement.id = "mensaje-iban-bien-formado-element";
     mensajeIbanBienFormadoElement.className = "mensaje-iban-bien-formado-element";
     contenedorValidacionIban?.appendChild(mensajeIbanBienFormadoElement);
     
-    if (mensajeIbanBienFormado === "Por favor introduce un valor." || mensajeIbanBienFormado === "El IBAN introducido es erróneo") {
+    if (mensajeIbanBienFormado === "Por favor introduce un valor." || mensajeIbanBienFormado === "El IBAN no está bien formado") {
         mensajeIbanBienFormadoElement.style.color = "#ff0000";
     }
     
-    const mensajeIbanValidoElement = document.createElement("p");
-    mensajeIbanValidoElement.innerHTML = mensajeIbanValido;
-    mensajeIbanValidoElement.id = "mensaje-iban-valido-element";
-    mensajeIbanValidoElement.className = "mensaje-iban-valido-element";
-    contenedorValidacionIban?.appendChild(mensajeIbanValidoElement);
-    
-    if (mensajeIbanValido === "El IBAN no es válido") {
-        mensajeIbanValidoElement.style.color = "#ff0000";
+    if (mensajeIbanValido) {
+        const mensajeIbanValidoElement = document.createElement("p");
+        mensajeIbanValidoElement.innerHTML = mensajeIbanValido;
+        mensajeIbanValidoElement.id = "mensaje-iban-valido-element";
+        mensajeIbanValidoElement.className = "mensaje-iban-valido-element";
+        contenedorValidacionIban?.appendChild(mensajeIbanValidoElement);
+        
+        if (mensajeIbanValido === "El IBAN no es válido") {
+            mensajeIbanValidoElement.style.color = "#ff0000";
+        }
     }
+    
 }
 
-export const reiniciaElementos = () => {
-    const mensajeIbanBienFormadoElement = document.getElementById("mensaje-iban-bien-formado-element");
-    const mensajeIbanValidoElement = document.getElementById("mensaje-iban-valido-element");
 
-    if (
-        contenedorValidacionIban instanceof HTMLDivElement && mensajeIbanBienFormadoElement instanceof HTMLParagraphElement && mensajeIbanValidoElement instanceof HTMLParagraphElement &&
-        bancoElement instanceof HTMLParagraphElement && sucursalElement instanceof HTMLParagraphElement && digitoControlElement instanceof HTMLParagraphElement && numeroCuentaElement instanceof HTMLParagraphElement
+// Vacía todos los campos que rellena el backend
+export const reiniciaElementosValidacionIban = () => {
+    if ( 
+        contenedorValidacionIban && contenedorValidacionIban != null && contenedorValidacionIban != undefined 
     ) {
-        contenedorValidacionIban.removeChild(mensajeIbanBienFormadoElement);
-        contenedorValidacionIban.removeChild(mensajeIbanValidoElement);
+        contenedorValidacionIban.textContent="";
         bancoElement.innerText = "";
         sucursalElement.innerText = "";
         digitoControlElement.innerText = "";
@@ -43,14 +45,17 @@ export const reiniciaElementos = () => {
 // Muestra el nombre del banco
 export const muestraBanco = (codigoBanco: string) => {
     const banco = codigosBancos.find(banco => (banco.codigo === codigoBanco));
-    const entidad = banco?.entidad;
+    
+    if (banco) {
+        const entidad = banco.entidad;
 
-    if (bancoElement instanceof HTMLParagraphElement) {
-        entidad
-        ? bancoElement.innerText = entidad
-        : bancoElement.innerText = "El banco es erróneo";
+        if ( bancoElement && bancoElement != null && bancoElement != undefined ) {
+            entidad
+            ? (bancoElement.innerText = entidad, console.log("mostrando banco", entidad))
+            : bancoElement.innerText = "El banco es erróneo";
+        }
     }
-};
+}
 
 // Muestra el número de la sucursal
 export const muestraSucursal = (sucursal: string) => {
