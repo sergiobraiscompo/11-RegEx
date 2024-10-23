@@ -9,8 +9,6 @@ import { ibanIntroducido, patronIban } from "./constantes";
 export const validaIban = (iban: string): string => {
     let mensajeIbanValido = "";
 
-    console.log("validando iban", iban)
-
     validateIBAN(iban).valid === true
         ? mensajeIbanValido = "El IBAN es válido"
         : mensajeIbanValido = "El IBAN no es válido";
@@ -32,14 +30,13 @@ export const muestraDatosIban = () => {
 
         if (coincidencia) {
         const { digitoControl1, codigoBanco, sucursal, digitoControl2, numeroCuenta } = coincidencia.groups as any;            
-        const mensajeIbanValido: string = validaIban(`ES${digitoControl1} ${codigoBanco} ${sucursal} ${digitoControl2} ${numeroCuenta}`);
+        const mensajeIbanValido: string = validaIban(`ES${digitoControl1}${codigoBanco}${sucursal}${digitoControl2}${numeroCuenta}`);
 
         if (mensajeIbanValido === "El IBAN es válido") {
             muestraBanco(codigoBanco);
             muestraSucursal(sucursal);
             muestraDigitoControl(digitoControl1, digitoControl2);
             muestraNumeroCuenta(numeroCuenta);
-
         }
 
         creaElementosValidacionIban("El IBAN está bien formado", mensajeIbanValido);

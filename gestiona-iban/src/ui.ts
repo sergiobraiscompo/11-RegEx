@@ -30,7 +30,7 @@ export const creaElementosValidacionIban = (mensajeIbanBienFormado: string, mens
 
 // Vacía todos los campos que rellena el backend
 export const reiniciaElementosValidacionIban = () => {
-    if ( 
+    if (
         contenedorValidacionIban && contenedorValidacionIban != null && contenedorValidacionIban != undefined 
     ) {
         contenedorValidacionIban.textContent="";
@@ -45,7 +45,7 @@ export const reiniciaElementosValidacionIban = () => {
 // Muestra el nombre del banco
 export const muestraBanco = (codigoBanco: string) => {
     const banco = codigosBancos.find(banco => (banco.codigo === codigoBanco));
-    
+
     if (banco) {
         const entidad = banco.entidad;
 
@@ -80,6 +80,6 @@ export const muestraNumeroCuenta = (numeroCuenta: string) => {
     if (numeroCuentaElement instanceof HTMLParagraphElement) {
         numeroCuenta
         ? numeroCuentaElement.innerText = numeroCuenta
-        : numeroCuentaElement.innerText = "El banco es erróneo";
+        : numeroCuentaElement.innerText = "El número de cuenta es erróneo";
     }
 };
