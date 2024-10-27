@@ -49,9 +49,10 @@ export const patronIban =  /^\w{2}(?<digitoControl1>\d{2})(\s|-|_|\.)?(?<codigoB
 
 // Elementos HTML
 export const contenedorValidacionIban = document.getElementById("contenedor-validacion-iban") as HTMLDivElement;
-export const bancoElement = document.getElementById("banco") as HTMLParagraphElement;
-export const sucursalElement = document.getElementById("sucursal") as HTMLParagraphElement;
-export const digitoControlElement = document.getElementById("digito-control") as HTMLParagraphElement;
-export const numeroCuentaElement = document.getElementById("numero-cuenta") as HTMLParagraphElement;
+export const bancoContainer = document.getElementById("banco-container") as HTMLDivElement;
+export const sucursalContainer = document.getElementById("sucursal-container") as HTMLDivElement;
+export const digitosControlContainer = document.getElementById("digitos-control-container") as HTMLDivElement;
+export const numeroCuentaContainer = document.getElementById("numero-cuenta-container") as HTMLDivElement;
+
 export const botonEnviaIban = document.getElementById("comprueba-iban") as HTMLButtonElement;
 export const ibanIntroducido = document.getElementById("campo-iban") as HTMLInputElement;
