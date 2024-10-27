@@ -1,20 +1,14 @@
 import "./styles.css";
 import { extraeUrls } from './extractor-imagenes.helper';
 import { creaCardImagen, reiniciaElementos } from './ui';
-import { botonExtraeImagenes } from "./constantes";
 
-// Gestiona datos iban
-export const extraeUrlImagenes = () => {
+export const devuelveElementosExtraidos = () => {
     reiniciaElementos();
-    const urlsImagenes = extraeUrls();
+    const listadoUrls = extraeUrls();
 
-    for (const urlImagen of urlsImagenes) {
+    for (const urlImagen of listadoUrls) {
         creaCardImagen(urlImagen);
     }
 }
 
-const eventos = () => {
-    botonExtraeImagenes.addEventListener("click", () => {extraeUrlImagenes()});
-}
 
-addEventListener("DOMContentLoaded", eventos);

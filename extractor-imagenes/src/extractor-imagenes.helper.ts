@@ -16,5 +16,3 @@ export const extraeUrls = (): string[] => {
     urls.forEach((url) => console.log(url))
     return urls;
 }
-
-

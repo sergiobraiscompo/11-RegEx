@@ -1,27 +1,29 @@
 import { contenedorDatosDevueltos } from "./constantes";
 
 
-export const muestraMensajeError = (mensajeComprobacionCodigo: string) => {    
+export const muestraMensajeError = (mensajeComprobacionCodigo: string) => {
     const mensajeComprobacionCodigoElement = document.createElement("p");
     mensajeComprobacionCodigoElement.innerHTML = mensajeComprobacionCodigo;
     mensajeComprobacionCodigoElement.id = "mensaje-comprobacion-codigo-element";
     mensajeComprobacionCodigoElement.className = "mensaje-comprobacion-codigo-element";
     contenedorDatosDevueltos?.appendChild(mensajeComprobacionCodigoElement);
-    
+
     if (mensajeComprobacionCodigo === "No se ha enontrado ningún elemento imagen." || mensajeComprobacionCodigo === "Por favor introduce un fragmento de código con imágenes.") {
         mensajeComprobacionCodigoElement.style.color = "#ff0000";
     }
 }
 
 
-export const creaCardImagen = (url: string) => {
-    console.log("Creando carta imagen");
+export const muestraGridImagenes = () => {
     
+}
+
+export const creaCardImagen = (url: string) => {
     // Crea el contenedor de la imagen
     const cardImagenElement = document.createElement("div");
     cardImagenElement.id = "card-imagen-element";
     cardImagenElement.className = "card-imagen-element";
-    
+
     creaElementoImagen(url);
     creaElementoUrl(url);
 
@@ -32,7 +34,7 @@ export const creaCardImagen = (url: string) => {
         cardImagenElement?.appendChild(imagenElement);
         console.log("Añadiendo elemento imagen")
     }
-    
+
     if (urlElement instanceof HTMLSpanElement) {
         cardImagenElement?.appendChild(urlElement);
         console.log("Añadiendo elemento url")
@@ -60,11 +62,11 @@ export const reiniciaElementos = () => {
     const imagenElement = document.getElementById("imagen-element");
     const urlElement = document.getElementById("link-element");
 
-    if ( mensajeComprobacionCodigoElement instanceof HTMLParagraphElement && contenedorDatosDevueltos instanceof HTMLDivElement) {
+    if (mensajeComprobacionCodigoElement instanceof HTMLParagraphElement && contenedorDatosDevueltos instanceof HTMLDivElement) {
         contenedorDatosDevueltos.removeChild(mensajeComprobacionCodigoElement);
     }
-    
-    if ( imagenElement instanceof HTMLImageElement && urlElement instanceof HTMLSpanElement) {
+
+    if (imagenElement instanceof HTMLImageElement && urlElement instanceof HTMLSpanElement) {
         contenedorDatosDevueltos.removeChild(imagenElement);
         contenedorDatosDevueltos.removeChild(urlElement);
     }
