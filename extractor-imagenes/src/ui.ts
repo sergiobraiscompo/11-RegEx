@@ -14,60 +14,59 @@ export const muestraMensajeError = (mensajeComprobacionCodigo: string) => {
 }
 
 
-export const muestraGridImagenes = () => {
-    
+export const muestraGridImagenes = (urls: string[]) => {
+    for (const url of urls) {
+        const cardImagen = creaCardImagen(url);
+        contenedorDatosDevueltos.appendChild(cardImagen);
+    }
 }
 
-export const creaCardImagen = (url: string) => {
+const creaCardImagen = (url: string): HTMLDivElement => {
     // Crea el contenedor de la imagen
     const cardImagenElement = document.createElement("div");
     cardImagenElement.id = "card-imagen-element";
     cardImagenElement.className = "card-imagen-element";
 
-    creaElementoImagen(url);
-    creaElementoUrl(url);
+    const imagenElement = creaElementoImagen(url);
+    const urlElement = creaElementoUrl(url);
 
-    const imagenElement = document.getElementById("imagen-element");
-    const urlElement = document.getElementById("link-element");
-
-    if (imagenElement instanceof HTMLImageElement) {
-        cardImagenElement?.appendChild(imagenElement);
-        console.log("Añadiendo elemento imagen")
+    if (
+        cardImagenElement && cardImagenElement != null && cardImagenElement != undefined &&
+        imagenElement && imagenElement != null && imagenElement != undefined &&
+        urlElement && urlElement != null && urlElement != undefined
+    ) {
+        cardImagenElement.appendChild(imagenElement);
+        cardImagenElement.appendChild(urlElement);
     }
 
-    if (urlElement instanceof HTMLSpanElement) {
-        cardImagenElement?.appendChild(urlElement);
-        console.log("Añadiendo elemento url")
-    }
-
-    contenedorDatosDevueltos.appendChild(cardImagenElement);
+    return cardImagenElement;
 }
 
-export const creaElementoImagen = (urlImagen: string) => {
+const creaElementoImagen = (urlImagen: string): HTMLImageElement => {
     const imagenElement = document.createElement("img");
     imagenElement.src = urlImagen;
-    imagenElement.id = "imagen-element";
+    imagenElement.id = `imagen-${urlImagen}`;
     imagenElement.className = "imagen-element";
+
+    return imagenElement;
 }
 
-export const creaElementoUrl = (url: string) => {
-    const urlElement = document.createElement("span");
+const creaElementoUrl = (url: string): HTMLAnchorElement => {
+    const urlElement = document.createElement("a");
+    urlElement.href = url;
     urlElement.innerText = url;
-    urlElement.id = "link-element";
+    urlElement.id = `url-${url}`;
     urlElement.className = "link-element";
+
+    return urlElement;
 }
 
 export const reiniciaElementos = () => {
     const mensajeComprobacionCodigoElement = document.getElementById("mensaje-comprobacion-codigo-element");
-    const imagenElement = document.getElementById("imagen-element");
-    const urlElement = document.getElementById("link-element");
 
     if (mensajeComprobacionCodigoElement instanceof HTMLParagraphElement && contenedorDatosDevueltos instanceof HTMLDivElement) {
         contenedorDatosDevueltos.removeChild(mensajeComprobacionCodigoElement);
     }
 
-    if (imagenElement instanceof HTMLImageElement && urlElement instanceof HTMLSpanElement) {
-        contenedorDatosDevueltos.removeChild(imagenElement);
-        contenedorDatosDevueltos.removeChild(urlElement);
-    }
+    contenedorDatosDevueltos.innerHTML = "";
 }

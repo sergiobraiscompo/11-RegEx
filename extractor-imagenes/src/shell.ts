@@ -5,4 +5,4 @@ const eventos = () => {
     botonExtraeImagenes.addEventListener("click", devuelveElementosExtraidos);
 }
 
-addEventListener("DOMContentLoaded", eventos);
+document.addEventListener("DOMContentLoaded", () => eventos());

@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="module" src="./src/extractor-imagenes.ts"></script>
-        <title>Laboratiorio 11 - RegEx</title>
-    </head>
-    
-    <body>
-        <header>
-            <h1>Pegue el HTML</h1>
-            <div class="contenedor-campos-input" id="contenedor-campos-input">
-                <textarea type="text" id="campo-texto" class="campo-texto"></textarea>
-                <button id="boton-extrae-imagenes" class="boton-extrae-imagenes"><img src="/public/magnifying_glass.svg" id="magnifying-glass" class="magnifying-glass">Extrae URLS</button>
-            </div>
-        </header>
-            <h1>URLS extraídas</h1>
-            <div class="contenedor-datos-devueltos" id="contenedor-datos-devueltos"></div>
-        </div>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./src/extractor-imagenes.ts"></script>
+    <title>Laboratiorio 11 - RegEx</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Pegue el HTML</h1>
+      <div class="contenedor-campos-input" id="contenedor-campos-input">
+        <textarea type="text" id="campo-texto" class="campo-texto"></textarea>
+        <button id="boton-extrae-imagenes" class="boton-extrae-imagenes">
+          <img
+            src="/magnifying_glass.svg"
+            id="magnifying-glass"
+            class="magnifying-glass"
+          />Extrae URLS
+        </button>
+      </div>
+    </header>
+
+    <h1>URLS extraídas</h1>
+    <div
+      class="contenedor-datos-devueltos"
+      id="contenedor-datos-devueltos"
+    ></div>
+  </body>
 </html>
